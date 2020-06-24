@@ -3,11 +3,14 @@
     "name": "ChannelPointCollector",
     "description": "Collect Twitch channel point automaticly.",
     "version": "1.0.0",
-    "browser_action": {
-        "default_popup": "popup.html"
-    },
     "permissions": [
-        "activeTab",
-        "storage"
-    ]
+        "tabs",
+        "storage",
+        "https://www.twitch.tv/*"
+    ],
+    "background": {
+        "scripts": [
+            "background.js"
+        ]
+    }
 }

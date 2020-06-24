@@ -9,14 +9,8 @@ let onoffHandler = () => {
     }
 }
 
-let twitchClicker = () => {
-    chrome.tabs.executeScript({
-        code: 'let pointButton = document.getElementsByClassName("tw-button tw-button--success tw-interactive")[0]'
-    })
-}
 
-window.onload = (evt) => {
-    onoffHandler()
-}
 
+
+onoffHandler()
 document.getElementById("onoff").onchange = onoffHandler
