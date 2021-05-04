@@ -1,6 +1,10 @@
 function addPonintCount() {
   chrome.storage.local.get("channelPointCount", (res) => {
-    chrome.storage.local.set({ channelPointCount: res.channelPointCount + 1 })
+    let x = res.channelPointCount
+    if (x == undefined) {
+      x = 0
+    }
+    chrome.storage.local.set({ channelPointCount: x + 1 })
   })
 }
 function getButton() {
