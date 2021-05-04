@@ -1,7 +1,7 @@
 function getButton() {
-    return document.getElementsByClassName("tw-button tw-button--success tw-interactive")
+  return document.getElementsByClassName("tw-button tw-button--success")
 }
 
 if (getButton().length > 0) {
-    getButton()[0].click()
+  getButton()[0].click()
 }
