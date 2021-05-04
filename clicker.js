@@ -9,4 +9,5 @@ function getButton() {
 
 if (getButton().length > 0) {
   getButton()[0].click()
+  addPonintCount()
 }
