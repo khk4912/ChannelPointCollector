@@ -16,7 +16,7 @@ function getPointCountFromStorage() {
 
 function updateCount() {
   getPointCountFromStorage().then((n) => {
-    document.getElementById("count").innerHTML = n
+    document.getElementById("count").innerHTML = n.toLocaleString("ko-KR")
     document.getElementById("point").innerHTML = (n * 50).toLocaleString(
       "ko-KR"
     )
