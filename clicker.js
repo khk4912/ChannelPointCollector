@@ -8,7 +8,7 @@ function addPonintCount() {
   })
 }
 function getButton() {
-  return document.getElementsByClassName("tw-button tw-button--success")
+  return document.getElementsByClassName("claimable-bonus__icon")
 }
 
 if (getButton().length > 0) {
