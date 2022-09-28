@@ -1,17 +1,20 @@
-const twitchClicker = (tabID) => {
-  chrome.tabs.executeScript(tabID, {
-    file: "clicker.js",
-  })
-}
+const twitchTabs = []
 
-const twitchWatcher = () => {
-  chrome.tabs.query({}, (results) => {
-    results.forEach((x) => {
-      if (x.url.startsWith("https://www.twitch.tv")) {
-        twitchClicker(x.id)
-      }
-    })
-  })
-}
+chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+  if (changeInfo.status === "complete") {
+    if (tab.url.includes("twitch.tv") && !twitchTabs.includes(tabId)) {
+      chrome.scripting.executeScript({
+        target: { tabId: tabId },
+        files: ["clicker.js"],
+      })
 
-setInterval(twitchWatcher, 2000)
+      twitchTabs.push(tabId)
+    }
+  }
+})
+
+chrome.tabs.onRemoved.addListener((tabId, removeInfo) => {
+  if (twitchTabs.includes(tabId)) {
+    twitchTabs.splice(twitchTabs.indexOf(tabId), 1)
+  }
+})
