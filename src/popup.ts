@@ -1,4 +1,4 @@
-import { getChannelPointInfo, initPointRecords } from './utils/local_storage'
+import { getChannelPointInfo } from './utils/local_storage'
 
 const counter = document.getElementById('count')
 const calculatedPoints = document.getElementById('calculatedPoints')
@@ -15,12 +15,8 @@ async function updateCounter(): Promise<void> {
   calculatedPoints.textContent = (records.cnt * 50).toLocaleString()
 }
 
-async function updateDemo(): Promise<void> {
-  await initPointRecords()
-}
+void updateCounter()
 
-updateDemo()
-  .then(() => {
-    updateCounter().then().catch(console.error)
-  })
-  .catch(console.error)
+chrome.storage.local.onChanged.addListener(() => {
+  void updateCounter()
+})
