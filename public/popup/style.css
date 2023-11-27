@@ -1,0 +1,97 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+
+html {
+  width: 300px;
+  height: 260px;
+}
+
+body {
+  color: white;
+  background-color: #0e0e10;
+  font-family:
+    'Pretendard Variable',
+    Pretendard,
+    -apple-system,
+    BlinkMacSystemFont,
+    system-ui,
+    Roboto,
+    'Helvetica Neue',
+    'Segoe UI',
+    'Apple SD Gothic Neo',
+    'Noto Sans KR',
+    'Malgun Gothic',
+    'Apple Color Emoji',
+    'Segoe UI Emoji',
+    'Segoe UI Symbol',
+    sans-serif;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#logo {
+  padding-top: 5%;
+  width: 15%;
+}
+
+#content {
+  padding-top: 5%;
+}
+
+.grey {
+  color: #8e8e93;
+}
+
+.light {
+  font-weight: 400;
+}
+
+.content-head {
+  margin-top: 4%;
+  font-size: 0.9rem;
+}
+
+#count {
+  margin-top: 0%;
+
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+footer {
+  margin-top: 0;
+}
+
+.twitch-color-button {
+  margin-top: 10%;
+  width: 30%;
+  height: 5%;
+  border: solid;
+  border-color: #772ce8;
+  border-radius: 0.8rem;
+  background-color: rgba(255, 255, 255, 0);
+
+  color: white;
+  font-size: 0.7rem;
+  padding: 2%;
+}
+
+.twitch-color-button:hover {
+  border-color: #772ce8;
+  background-color: #772ce8;
+  cursor: pointer;
+}
+
+.calc-point {
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: lightgrey;
+}
+
+#calculatedPoints {
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
+}
