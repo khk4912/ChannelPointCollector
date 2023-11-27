@@ -1,9 +1,9 @@
 import { type PointRecords, isPointRecords } from '../types/point_record'
 
-async function initPointRecords(): Promise<PointRecords> {
+export async function initPointRecords(): Promise<PointRecords> {
   const records: PointRecords = {
     cnt: 0,
-    records: [],
+    records: {},
   }
   await chrome.storage.local.set({ point_records: records })
 
@@ -29,15 +29,18 @@ export async function setChannelPointInfo(
 
 export async function addCountOf(id: string): Promise<void> {
   const records = await getChannelPointInfo()
-  const index = records.records.findIndex((record) => record.id === id)
+  let channelInfo = records.records[id]
 
-  if (index === -1) {
-    records.records.push({ id, cnt: 1, from: Date.now() })
-  } else {
-    records.records[index].cnt++
+  if (channelInfo === undefined) {
+    channelInfo = {
+      cnt: 0,
+      from: new Date().getTime(),
+    }
   }
 
+  channelInfo.cnt++
   records.cnt++
 
+  records.records[id] = channelInfo
   await setChannelPointInfo(records)
 }

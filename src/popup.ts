@@ -1,4 +1,4 @@
-import { getChannelPointInfo, setChannelPointInfo } from './utils/local_storage'
+import { getChannelPointInfo, initPointRecords } from './utils/local_storage'
 
 const counter = document.getElementById('count')
 const calculatedPoints = document.getElementById('calculatedPoints')
@@ -16,10 +16,7 @@ async function updateCounter(): Promise<void> {
 }
 
 async function updateDemo(): Promise<void> {
-  const records = await getChannelPointInfo()
-  records.cnt = 100000000
-
-  await setChannelPointInfo(records)
+  await initPointRecords()
 }
 
 updateDemo()

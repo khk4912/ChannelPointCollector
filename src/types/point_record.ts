@@ -1,16 +1,17 @@
 interface ChannelInfo {
-  id: string
   cnt: number
-  from: number // timestamp
+  from: number
 }
 
 export interface PointRecords {
   cnt: number
-  records: ChannelInfo[]
+  records: Partial<Record<string, ChannelInfo>>
 }
 
 export function isPointRecords(obj: any): obj is PointRecords {
   return (
-    obj !== null && typeof obj.cnt === 'number' && Array.isArray(obj.records)
+    obj !== null &&
+    typeof obj.cnt === 'number' &&
+    typeof obj.records === 'object'
   )
 }
