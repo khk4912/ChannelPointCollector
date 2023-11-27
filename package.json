@@ -25,6 +25,7 @@
   },
   "scripts": {
     "prod": "NODE_ENV=production webpack",
-    "dev": "NODE_ENV=development webpack"
+    "dev": "NODE_ENV=development webpack",
+    "watch": "NODE_ENV=development webpack --watch"
   }
 }
