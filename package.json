@@ -1,0 +1,30 @@
+{
+  "name": "channelpointcollector",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/khk4912/ChannelPointCollector.git",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/chrome": "^0.0.253",
+    "@types/node": "^20.10.0",
+    "@types/webpack": "^5.28.5",
+    "@typescript-eslint/eslint-plugin": "^6.4.0",
+    "copy-webpack-plugin": "^11.0.0",
+    "eslint": "^8.0.1",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-config-standard-with-typescript": "^40.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0 || ^16.0.0 ",
+    "eslint-plugin-promise": "^6.0.0",
+    "prettier": "^3.1.0",
+    "ts-loader": "^9.5.1",
+    "ts-node": "^10.9.1",
+    "typescript": "*",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "scripts": {
+    "prod": "NODE_ENV=production webpack",
+    "dev": "NODE_ENV=development webpack"
+  }
+}

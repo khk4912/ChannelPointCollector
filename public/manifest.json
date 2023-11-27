@@ -1,0 +1,20 @@
+{
+  "name": "ChannelPointCollector",
+  "version": "1.0.0",
+  "description": "Collects Twitch channel points for you automatically.",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "ChannelPointCollector"
+  },
+  "permissions": ["tabs", "storage", "scripting"],
+  "host_permissions": ["https://www.twitch.tv/*"],
+  "background": {
+    "service_worker": "./background.js"
+  },
+  "icons": {
+    "128": "128x128.png",
+    "48": "48x48.png",
+    "16": "16x16.png"
+  }
+}
