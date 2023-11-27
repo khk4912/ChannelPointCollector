@@ -10,7 +10,7 @@ const webpackConfig = {
   },
 
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, './dist/js'),
     filename: '[name].js',
   },
 
@@ -25,7 +25,7 @@ const webpackConfig = {
 
   plugins: [
     new CopyPlugin({
-      patterns: [{ from: '.', to: '../dist', context: 'public' }],
+      patterns: [{ from: 'public', to: '..' }],
     }),
   ],
 }
