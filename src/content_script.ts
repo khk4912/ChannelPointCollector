@@ -16,4 +16,6 @@ function pointButtonWatcher(): void {
   addCountOf(ID).then().catch(console.error)
 }
 
-setInterval(pointButtonWatcher, 1000)
+if (ID !== '') {
+  setInterval(pointButtonWatcher, 1000)
+}
