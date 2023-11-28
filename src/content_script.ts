@@ -1,12 +1,12 @@
 import { addCountOf } from './utils/local_storage'
 
 const getID = (): string => new URL(location.href).pathname.split('/')[1]
-const ID = getID()
 
 function pointButtonWatcher(): void {
   const bonusIcons = document.getElementsByClassName('claimable-bonus__icon')
+  const ID = getID()
 
-  if (bonusIcons.length === 0) {
+  if (bonusIcons.length === 0 || ID === '') {
     return
   }
 
@@ -16,6 +16,4 @@ function pointButtonWatcher(): void {
   addCountOf(ID).then().catch(console.error)
 }
 
-if (ID !== '') {
-  setInterval(pointButtonWatcher, 1000)
-}
+setInterval(pointButtonWatcher, 5000)
