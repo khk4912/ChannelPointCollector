@@ -5,6 +5,10 @@ html {
   height: 260px;
 }
 
+.records {
+  height: 500px;
+}
+
 body {
   color: white;
   background-color: #0e0e10;
@@ -93,4 +97,20 @@ footer {
 #calculatedPoints {
   padding-left: 0.2rem;
   padding-right: 0.2rem;
+}
+
+#backButton {
+  width: 8%;
+  margin-top: 3%;
+  margin-left: 3%;
+}
+
+#backButton:hover {
+  cursor: pointer;
+}
+
+.left {
+  display: flex;
+  justify-content: left;
+  align-items: left;
 }
