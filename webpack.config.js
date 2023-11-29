@@ -8,6 +8,7 @@ const webpackConfig = {
   entry: {
     content_script: path.resolve(__dirname, 'src/content_script.ts'),
     popup: path.resolve(__dirname, 'src/popup.ts'),
+    records: path.resolve(__dirname, 'src/records.ts'),
   },
 
   output: {
