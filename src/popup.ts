@@ -3,6 +3,10 @@ import { getChannelPointInfo } from './utils/local_storage'
 const counter = document.getElementById('count')
 const calculatedPoints = document.getElementById('calculatedPoints')
 
+const changeToRecordsPage = (): void => {
+  window.location.href = 'records.html'
+}
+
 async function updateCounter(): Promise<void> {
   const records = await getChannelPointInfo()
   console.log(records)
@@ -20,3 +24,6 @@ void updateCounter()
 chrome.storage.local.onChanged.addListener(() => {
   void updateCounter()
 })
+
+const showRecordsButton = document.getElementById('recordsButton')
+showRecordsButton?.addEventListener('click', changeToRecordsPage)
