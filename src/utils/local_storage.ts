@@ -44,3 +44,8 @@ export async function addCountOf(id: string): Promise<void> {
   records.records[id] = channelInfo
   await setChannelPointInfo(records)
 }
+
+export async function getRecords(): Promise<PointRecords['records']> {
+  const info = await getChannelPointInfo()
+  return info.records
+}
