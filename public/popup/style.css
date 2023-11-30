@@ -7,6 +7,7 @@ html {
 
 .records {
   height: 500px;
+  margin: 5%;
 }
 
 body {
@@ -101,8 +102,12 @@ footer {
 
 #backButton {
   width: 8%;
-  margin-top: 3%;
+  margin-top: 2%;
   margin-left: 3%;
+}
+
+#recordHeaderText {
+  font-size: 1.5rem;
 }
 
 #backButton:hover {
@@ -112,5 +117,34 @@ footer {
 .left {
   display: flex;
   justify-content: left;
-  align-items: left;
+  align-items: center;
+}
+
+.streamer {
+  border-style: solid;
+  /*  border only top  */
+  border-width: 0.1rem 0 0 0;
+
+  border-color: #772ce8;
+  padding: 2%;
+}
+
+.streamer-info {
+  width: 100%;
+  font-size: medium;
+  font-weight: bold;
+}
+
+.record-info {
+  width: 100%;
+}
+
+#recordCount {
+  margin-right: 3%;
+}
+
+#profileImg {
+  width: 10%;
+  border-radius: 50%;
+  margin-right: 5%;
 }

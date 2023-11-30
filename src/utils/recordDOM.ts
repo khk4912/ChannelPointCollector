@@ -1,49 +1,81 @@
-export function streamerRecordDOM(id: string, count: number): HTMLDivElement {
-  const stremaer = document.createElement('div')
+import type { ChannelRecords } from '../types/point_record'
+import type { APIResponse } from '../types/streamer'
+import { getStreamerInfo } from './twitchAPI'
 
-  const streamerInfo = document.createElement('div')
-  streamerInfo.classList.add('streamer-info')
+export async function addStreamerDOM(
+  records: ChannelRecords,
+  target: HTMLDivElement,
+): Promise<void> {
+  // sort by cnts
+  const streamerNames = Object.keys(records)
 
-  const streamerName = document.createElement('span')
-  streamerName.id = 'streamerName'
-  streamerName.textContent = 'streamerName'
+  // every 100 streamers
 
-  const streamerId = document.createElement('span')
-  streamerId.id = 'streamerId'
-  streamerId.textContent = id
+  for (let i = 0; i < streamerNames.length; i += 100) {
+    const streamers = streamerNames.slice(i, i + 100)
 
-  const recordInfo = document.createElement('div')
-  recordInfo.classList.add('record-info')
+    const streamerInfo = await getStreamerInfo(streamers)
+    const streamerDOMs = createStreamerDOM(streamerInfo, records)
 
-  const recordCount = document.createElement('span')
-  recordCount.id = 'recordCount'
-  recordCount.textContent = count.toLocaleString()
-
-  const recordPoints = document.createElement('span')
-  recordPoints.id = 'recordPoints'
-  recordPoints.textContent = (count * 50).toLocaleString()
-
-  streamerInfo.appendChild(streamerName)
-  streamerInfo.appendChild(streamerId)
-  recordInfo.appendChild(recordCount)
-  recordInfo.appendChild(recordPoints)
-  stremaer.appendChild(streamerInfo)
-  stremaer.appendChild(recordInfo)
-
-  return stremaer
+    target.append(...streamerDOMs)
+  }
 }
 
-/* 
-<div class="streamer">
-<div class="streamer-info">
-  <span id="streamerName"></span>
-  <span id="streamerId"></span>
-</div>
+const createStreamerDOM = (
+  info: APIResponse,
+  records: ChannelRecords,
+): HTMLDivElement[] => {
+  const res: HTMLDivElement[] = []
+  const sortedRecords = Object.keys(records).sort(
+    (a, b) => records[b].cnt - records[a].cnt,
+  )
 
-<div class="record-info">
-  <span id="recordCount"></span>
-  <span id="recordPoints"></span>
-</div>
-</div>
+  for (const r of sortedRecords) {
+    const i = info.data.find((i) => i.login === r)
 
-*/
+    const streamerDiv = document.createElement('div')
+    streamerDiv.classList.add('streamer')
+    streamerDiv.classList.add('left')
+
+    const profileImg = document.createElement('img')
+    profileImg.id = 'profileImg'
+    profileImg.src = i?.profile_image_url ?? 'assets/default_profile.png'
+
+    const streamerInfo = document.createElement('div')
+    streamerInfo.classList.add('streamer-info')
+
+    const streamerId = document.createElement('span')
+    streamerId.id = 'streamerId'
+    streamerId.textContent = i?.login ?? r
+
+    const streamerName = document.createElement('span')
+    streamerName.id = 'streamerName'
+    streamerName.textContent = i?.display_name ?? r
+
+    const recordInfo = document.createElement('div')
+    recordInfo.classList.add('record-info')
+
+    const count = records[r].cnt
+
+    const recordCount = document.createElement('span')
+    recordCount.id = 'recordCount'
+    recordCount.textContent = count.toLocaleString()
+
+    const recordPoints = document.createElement('span')
+    recordPoints.id = 'recordPoints'
+    recordPoints.textContent = (count * 50).toLocaleString()
+
+    //   streamerInfo.appendChild(streamerName)
+    streamerDiv.appendChild(profileImg)
+    streamerInfo.appendChild(streamerId)
+    streamerInfo.appendChild(streamerName)
+    recordInfo.appendChild(recordCount)
+    recordInfo.appendChild(recordPoints)
+    streamerDiv.appendChild(streamerInfo)
+    streamerDiv.appendChild(recordInfo)
+
+    res.push(streamerDiv)
+  }
+
+  return res
+}

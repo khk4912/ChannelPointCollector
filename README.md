@@ -21,3 +21,5 @@
 
 3. 압축 해제한 폴더를 선택해주세요.
    ![image](https://github.com/khk4912/ChannelPointCollector/assets/30457148/34e06242-5b77-4cd2-bc0b-3bebf97b719d)
+
+<div> Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik"> Freepik </a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>

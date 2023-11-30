@@ -3,9 +3,11 @@ interface ChannelInfo {
   from: number
 }
 
+export type ChannelRecords = Record<string, ChannelInfo>
+
 export interface PointRecords {
   cnt: number
-  records: Partial<Record<string, ChannelInfo>>
+  records: ChannelRecords
 }
 
 export function isPointRecords(obj: any): obj is PointRecords {
