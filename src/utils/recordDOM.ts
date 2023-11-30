@@ -71,14 +71,16 @@ const createStreamerDOM = (
 
     recordInfo.appendChild(recordCount)
 
-    //   streamerInfo.appendChild(streamerName)
     streamerDiv.appendChild(profileImg)
     streamerInfo.appendChild(streamerName)
     streamerInfo.appendChild(streamerId)
 
     streamerDiv.appendChild(streamerInfo)
-    // streamerDiv.appendChild(tooltip)
     streamerDiv.appendChild(recordInfo)
+
+    streamerDiv.addEventListener('click', () => {
+      window.open(`https://twitch.tv/${r}`)
+    })
 
     res.push(streamerDiv)
   }
