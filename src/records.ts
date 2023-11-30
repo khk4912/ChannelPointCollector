@@ -5,8 +5,15 @@ const changeToMain = (): void => {
   window.location.href = './popup.html'
 }
 
+const reset = (): void => {
+  alert('정말로 초기화?')
+}
+
 const backButton = document.getElementById('backButton')
 backButton?.addEventListener('click', changeToMain)
+
+const resetButton = document.getElementById('resetButton')
+resetButton?.addEventListener('click', reset)
 
 async function init(): Promise<void> {
   const records = await getRecords()

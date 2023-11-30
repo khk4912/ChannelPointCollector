@@ -46,7 +46,7 @@ const createStreamerDOM = (
 
     const streamerId = document.createElement('span')
     streamerId.id = 'streamerId'
-    streamerId.textContent = i?.login ?? r
+    streamerId.textContent = `(${i?.login ?? r})`
 
     const streamerName = document.createElement('span')
     streamerName.id = 'streamerName'
@@ -59,19 +59,25 @@ const createStreamerDOM = (
 
     const recordCount = document.createElement('span')
     recordCount.id = 'recordCount'
-    recordCount.textContent = count.toLocaleString()
+    recordCount.textContent = `${count.toLocaleString()}회`
+    recordCount.classList.add('tooltip')
 
     const recordPoints = document.createElement('span')
     recordPoints.id = 'recordPoints'
-    recordPoints.textContent = (count * 50).toLocaleString()
+    recordPoints.classList.add('tooltip-text')
+    recordPoints.textContent = `= ${(count * 50).toLocaleString()} 포인트`
+
+    recordCount.appendChild(recordPoints)
+
+    recordInfo.appendChild(recordCount)
 
     //   streamerInfo.appendChild(streamerName)
     streamerDiv.appendChild(profileImg)
-    streamerInfo.appendChild(streamerId)
     streamerInfo.appendChild(streamerName)
-    recordInfo.appendChild(recordCount)
-    recordInfo.appendChild(recordPoints)
+    streamerInfo.appendChild(streamerId)
+
     streamerDiv.appendChild(streamerInfo)
+    // streamerDiv.appendChild(tooltip)
     streamerDiv.appendChild(recordInfo)
 
     res.push(streamerDiv)

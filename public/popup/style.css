@@ -3,10 +3,11 @@
 html {
   width: 300px;
   height: 260px;
+  overflow-y: scroll;
 }
 
 .records {
-  height: 500px;
+  height: 450px;
   margin: 5%;
 }
 
@@ -29,6 +30,13 @@ body {
     'Segoe UI Emoji',
     'Segoe UI Symbol',
     sans-serif;
+}
+
+.lr {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10%;
 }
 
 .center {
@@ -69,10 +77,17 @@ footer {
   margin-top: 0;
 }
 
-.twitch-color-button {
+.move-button {
   margin-top: 10%;
   width: 30%;
   height: 5%;
+}
+
+.delete-button {
+  width: 20%;
+}
+
+.twitch-color-button {
   border: solid;
   border-color: #772ce8;
   border-radius: 0.8rem;
@@ -89,6 +104,12 @@ footer {
   cursor: pointer;
 }
 
+.delete-button:hover {
+  border-color: #fc4444;
+  background-color: #fc4444;
+  cursor: pointer;
+}
+
 .calc-point {
   font-size: 0.7rem;
   font-weight: 400;
@@ -101,13 +122,20 @@ footer {
 }
 
 #backButton {
-  width: 8%;
-  margin-top: 2%;
-  margin-left: 3%;
+  width: 5%;
+}
+
+#recordCount {
+  font-size: 1rem;
+}
+
+#recordsContainer {
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
 
 #recordHeaderText {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
 }
 
 #backButton:hover {
@@ -123,28 +151,72 @@ footer {
 .streamer {
   border-style: solid;
   /*  border only top  */
-  border-width: 0.1rem 0 0 0;
+  border-width: 0 0 0.1rem 0;
 
   border-color: #772ce8;
-  padding: 2%;
+  padding: 4% 2%;
+}
+
+.streamer:last-child {
+  border: none;
+}
+
+.streamer:hover {
+  background-color: #772ce8;
+  cursor: pointer;
 }
 
 .streamer-info {
-  width: 100%;
+  width: 60%;
   font-size: medium;
   font-weight: bold;
+  display: grid;
 }
 
 .record-info {
-  width: 100%;
+  width: 60%;
+  display: grid;
 }
 
-#recordCount {
-  margin-right: 3%;
+#recordPoints {
+  font-size: 0.65rem;
 }
 
 #profileImg {
   width: 10%;
   border-radius: 50%;
   margin-right: 5%;
+}
+
+#streamerName {
+  font-size: 1rem;
+}
+
+#streamerId {
+  font-weight: normal;
+  font-size: 0.8rem;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: end;
+  text-align: right;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  position: absolute;
+  border: solid;
+  border-width: 0.03rem;
+  border-radius: 9%;
+  padding: 10%;
+
+  /* left: -0%; */
+  background-color: #250359;
+}
+
+.tooltip:hover .tooltip-text {
+  visibility: visible;
 }

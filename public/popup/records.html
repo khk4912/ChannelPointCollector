@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ko">
+<html lang="ko" style="width: 360px">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,7 +10,13 @@
       <img src="assets/back-button.png" alt="Back Button" id="backButton" />
     </header>
 
-    <h1 class="left" id="recordHeaderText">기록</h1>
+    <div class="lr">
+      <h1 id="recordHeaderText">기록</h1>
+
+      <button class="twitch-color-button delete-button" id="recordResetButton">
+        삭제
+      </button>
+    </div>
 
     <div id="recordsContainer"></div>
 
