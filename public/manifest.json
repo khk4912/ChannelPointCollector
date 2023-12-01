@@ -7,7 +7,7 @@
     "default_popup": "popup/popup.html",
     "default_title": "ChannelPointCollector"
   },
-  "permissions": ["tabs", "storage", "scripting"],
+  "permissions": ["storage", "scripting"],
   "host_permissions": ["https://www.twitch.tv/*"],
   "icons": {
     "128": "128x128.png",
