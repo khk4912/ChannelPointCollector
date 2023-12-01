@@ -6,9 +6,23 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body class="records">
-    <header class="left">
+    <header class="left sticky-backbutton">
       <img src="assets/back-button.png" alt="Back Button" id="backButton" />
     </header>
+
+    <div class="popup center hidden" id="resetModal">
+      <div>
+        <h2>정말로 모든 기록을 삭제하시겠습니까?</h2>
+        <span>한 번 삭제하면 취소할 수 없습니다!</span>
+      </div>
+
+      <div class="buttons">
+        <button class="twitch-color-button" id="resetConfirmButton">
+          삭제
+        </button>
+        <button class="twitch-color-button" id="resetCancelButton">취소</button>
+      </div>
+    </div>
 
     <div class="lr">
       <h1 id="recordHeaderText">기록</h1>
@@ -18,7 +32,18 @@
       </button>
     </div>
 
-    <div id="recordsContainer"></div>
+    <div id="recordsContainer">
+      <div id="loading" class="center">
+        <span>정보 불러오는 중...</span>
+      </div>
+
+      <div class="hidden" id="noRecordText">
+        <span id="noRecordHeader">아직 기록이 없습니다.</span>
+        <span
+          >확장 프로그램이 자동으로 클릭한 횟수를 스트리머별로 기록합니다.</span
+        >
+      </div>
+    </div>
 
     <script src="../js/records.js"></script>
   </body>

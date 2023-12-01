@@ -1,5 +1,6 @@
 import type { ChannelRecords } from '../types/point_record'
 import type { APIResponse } from '../types/streamer'
+import { minutesConverter } from './minutesConverter'
 import { getStreamerInfo } from './twitchAPI'
 
 export async function addStreamerDOM(
@@ -66,6 +67,7 @@ const createStreamerDOM = (
     recordPoints.id = 'recordPoints'
     recordPoints.classList.add('tooltip-text')
     recordPoints.textContent = `= ${(count * 50).toLocaleString()} 포인트`
+    recordPoints.textContent += `\r\n(${minutesConverter(count * 15)})`
 
     recordCount.appendChild(recordPoints)
 
