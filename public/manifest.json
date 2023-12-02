@@ -1,6 +1,6 @@
 {
   "name": "ChannelPointCollector",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Collects Twitch channel points for you automatically.",
   "manifest_version": 3,
   "action": {
