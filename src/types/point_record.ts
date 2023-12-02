@@ -11,9 +11,5 @@ export interface PointRecords {
 }
 
 export function isPointRecords(obj: any): obj is PointRecords {
-  return (
-    obj !== null &&
-    typeof obj.cnt === 'number' &&
-    typeof obj.records === 'object'
-  )
+  return typeof obj?.cnt === 'number' && typeof obj?.records === 'object'
 }
