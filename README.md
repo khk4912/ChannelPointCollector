@@ -12,15 +12,7 @@
 
 ## Install
 
-1. [Releases](https://github.com/khk4912/ChannelPointCollector/releases) 에서 압축파일을 다운로드 해주세요.
-   ![image](https://github.com/khk4912/ChannelPointCollector/assets/30457148/88cef1ab-4df8-4b8e-aa97-8829570f1ed3)
-   <br />
-
-2. 압축파일을 해제 한 후, [chrome://extensions](chrome:extensions)에 방문해 오른쪽 위의 개발자 모드를 켠 후, `압축해제된 확장 프로그램을 로드합니다.` 를 클릭해주세요.
-   ![image](https://github.com/khk4912/ChannelPointCollector/assets/30457148/5b975adf-80d3-4ce8-b07f-2372588307da)
-
-3. 압축 해제한 폴더를 선택해주세요.
-   ![image](https://github.com/khk4912/ChannelPointCollector/assets/30457148/34e06242-5b77-4cd2-bc0b-3bebf97b719d)
+[Chrome 웹 스토어에서 다운로드하기](https://chromewebstore.google.com/detail/channelpointcollector/kcchcgnjpblaokmpnbgdkklghncjlkli)
 
 ## Screenshots
 
